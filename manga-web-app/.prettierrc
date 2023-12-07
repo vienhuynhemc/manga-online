@@ -3,7 +3,6 @@
   "tabWidth": 2,
   "singleQuote": true,
   "quoteProps": "preserve",
-  "bracketSpacing": false,
   "trailingComma": "none",
   "endOfLine": "auto"
 }
