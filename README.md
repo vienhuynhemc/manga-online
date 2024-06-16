@@ -1,2 +1,2 @@
 # Version
-manga-web-app: 18.0.3 
+- manga-web-app: 18.0.3 
