@@ -57,6 +57,9 @@ then
     exit 1;
   fi
 
+  echo "Check eslint";
+  ng lint;
+
   cd ..;
   echo "Finish checking for 'Manga Web App' without any errors";
 fi
