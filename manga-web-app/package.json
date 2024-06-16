@@ -10,6 +10,7 @@
     "lint": "ng lint",
     "check-update": "npx npm-check-updates",
     "update": "ng update",
+    "prettier:check": "npx prettier . --check",
     "prettier:format": "npx prettier . --write"
   },
   "private": true,
