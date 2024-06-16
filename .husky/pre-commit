@@ -1,0 +1,41 @@
+#!/bin/bash
+#!/bin/bash <-- This line help us to edit a binary file easily
+
+# Introduce variables to define which modules need to check before commit
+should_check_manga_api=0;
+should_check_manga_web_app=0;
+
+# Get all different file names
+diffFileNames=$(git diff --name-only HEAD);
+
+# Determine which modules have file changed
+for diffFileName in $diffFileNames
+do
+  # Manga API
+  if [[ $diffFileName == manga-api/* ]]
+  then
+    should_check_manga_api=1;
+  fi
+  # Manga web app
+  if [[ $diffFileName == manga-web-app/* ]]
+  then
+    should_check_manga_web_app=1;
+  fi
+done
+
+# Check Manga API
+if [ $should_check_manga_api = 1 ]
+then
+  echo "Detect that 'Manga API' has changed. Start checking..."
+  cd ./manga-api && mvn clean install;
+  cd ..;
+  echo "Finish checking for 'Manga API' without any errors"
+fi
+
+# Check Manga web app
+if [ $should_check_manga_web_app = 1 ]
+then
+  echo "Detect that 'Manga Web App' has changed. Start checking..."
+  cd ./manga-web-app && cd ..;
+  echo "Finish checking for 'Manga Web App' without any errors"
+fi
