@@ -28,7 +28,7 @@ if [ $should_check_manga_api = 1 ]
 then
   echo "Detect that 'Manga API' has changed. Start checking...";
 
-  echo "Check code formatting";
+  echo "Check code formatting with spotless";
   if cd ./manga-api && mvn spotless:check;
   then echo "Good code format";
   else
@@ -45,7 +45,18 @@ fi
 # Check Manga web app
 if [ $should_check_manga_web_app = 1 ]
 then
-  echo "Detect that 'Manga Web App' has changed. Start checking..."
-  cd ./manga-web-app && cd ..;
-  echo "Finish checking for 'Manga Web App' without any errors"
+  echo "Detect that 'Manga Web App' has changed. Start checking...";
+
+  echo "Check code formatting with prettier";
+  if cd ./manga-web-app && npx prettier . --check;
+  then echo "Good code format";
+  else
+    echo "There are some formatting issues, so apply prettier";
+    npx prettier . --write;
+    git reset;
+    exit 1;
+  fi
+
+  cd ..;
+  echo "Finish checking for 'Manga Web App' without any errors";
 fi
