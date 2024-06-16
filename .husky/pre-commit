@@ -26,10 +26,20 @@ done
 # Check Manga API
 if [ $should_check_manga_api = 1 ]
 then
-  echo "Detect that 'Manga API' has changed. Start checking..."
-  cd ./manga-api && mvn clean install;
+  echo "Detect that 'Manga API' has changed. Start checking...";
+
+  echo "Check code formatting";
+  if cd ./manga-api && mvn spotless:check;
+  then echo "Good code format";
+  else
+    echo "There are some formatting issues, so apply spotless";
+    mvn spotless:apply;
+    git reset;
+    exit 1;
+  fi
+
   cd ..;
-  echo "Finish checking for 'Manga API' without any errors"
+  echo "Finish checking for 'Manga API' without any errors";
 fi
 
 # Check Manga web app
