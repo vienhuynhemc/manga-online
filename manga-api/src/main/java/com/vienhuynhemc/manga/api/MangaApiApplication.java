@@ -1,4 +1,4 @@
-package com.vienhuynhemc.manga_api;
+package com.vienhuynhemc.manga.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

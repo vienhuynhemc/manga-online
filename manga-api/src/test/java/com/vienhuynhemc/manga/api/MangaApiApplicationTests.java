@@ -1,4 +1,4 @@
-package com.vienhuynhemc.manga_api;
+package com.vienhuynhemc.manga.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
