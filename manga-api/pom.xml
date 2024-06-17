@@ -6,7 +6,7 @@
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
     <version>3.3.0</version>
-    <relativePath></relativePath>
+    <relativePath/>
     <!-- lookup parent from repository -->
   </parent>
 
@@ -52,8 +52,8 @@
               <includes>
                 <include>.gitignore</include>
               </includes>
-              <trimTrailingWhitespace></trimTrailingWhitespace>
-              <endWithNewline></endWithNewline>
+              <trimTrailingWhitespace/>
+              <endWithNewline/>
               <indent>
                 <tabs>true</tabs>
                 <spacesPerTab>2</spacesPerTab>
@@ -67,11 +67,11 @@
               <include>src/test/java/**/*.java</include>
             </includes>
 
-            <cleanthat></cleanthat>
-            <googleJavaFormat></googleJavaFormat>
-            <importOrder></importOrder>
-            <removeUnusedImports></removeUnusedImports>
-            <formatAnnotations></formatAnnotations>
+            <cleanthat/>
+            <googleJavaFormat/>
+            <importOrder/>
+            <removeUnusedImports/>
+            <formatAnnotations/>
 
             <licenseHeader>
               <content>/* vienhuynhemc */</content>
@@ -82,14 +82,16 @@
             <includes>
               <include>pom.xml</include>
             </includes>
-            <sortPom></sortPom>
+            <sortPom>
+              <expandEmptyElements>false</expandEmptyElements>
+            </sortPom>
           </pom>
 
           <markdown>
             <includes>
               <include>**/*.md</include>
             </includes>
-            <flexmark></flexmark>
+            <flexmark/>
           </markdown>
 
           <yaml>
@@ -97,8 +99,8 @@
               <include>src/**/*.yaml</include>
             </includes>
 
-            <jackson></jackson>
-            <prettier></prettier>
+            <jackson/>
+            <prettier/>
           </yaml>
         </configuration>
       </plugin>
